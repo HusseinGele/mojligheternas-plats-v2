@@ -1,0 +1,63 @@
+import { motion } from 'framer-motion'
+import { Button } from '@/components/ui/button.jsx'
+import { ChevronRight } from 'lucide-react'
+
+export default function HeroSection() {
+  return (
+    <section id="hem" className="pt-16 min-h-screen flex items-center relative overflow-hidden">
+      {/* Background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-secondary to-background"></div>
+
+      {/* Pattern overlay */}
+      <div className="absolute inset-0 opacity-20">
+        <div
+          className="w-full h-full"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%230057B8' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+          }}
+        ></div>
+      </div>
+
+      {/* Content */}
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-4xl md:text-6xl font-bold mb-6 text-foreground"
+        >
+          Skapar <span className="text-primary">trygga rum</span><br />
+          där unga kan <span className="text-accent">växa</span>
+        </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto"
+        >
+          Möjligheternas Plats är en förening som bygger broar mellan unga, fritidsgårdar och samhället. Vi vänder oss till ungdomar mellan 8–25 år och arbetar både lokalt och internationellt.
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="flex flex-col sm:flex-row gap-4 justify-center"
+        >
+          <Button size="lg" className="bg-primary hover:opacity-90 text-primary-foreground text-lg px-8 py-3">
+            Upptäck våra program
+            <ChevronRight className="ml-2 h-5 w-5" />
+          </Button>
+          <Button
+            size="lg"
+            variant="outline"
+            className="border-primary text-primary hover:bg-primary hover:text-primary-foreground text-lg px-8 py-3"
+          >
+            Läs mer om oss
+          </Button>
+        </motion.div>
+      </div>
+    </section>
+  )
+}
